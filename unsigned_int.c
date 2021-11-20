@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
 void	ft_put_unsigned_nbr_fd(va_list num, int fd)
 {
