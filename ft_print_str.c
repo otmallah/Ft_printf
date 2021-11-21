@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   int_base10.c                                       :+:      :+:    :+:   */
+/*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otmallah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 20:25:03 by otmallah          #+#    #+#             */
-/*   Updated: 2021/11/19 20:25:04 by otmallah         ###   ########.fr       */
+/*   Created: 2021/11/19 22:03:12 by otmallah          #+#    #+#             */
+/*   Updated: 2021/11/19 22:03:13 by otmallah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int decimal(va_list ap)
+int putstr(va_list las)
 {
-    int num;
+    char *res;
+    int i;
 
-    num = va_arg(ap, int);
-    ft_putnbr_fd(num, 1);
-    return (1);
+    i = 0;
+    res = va_arg(las, char *);
+    if (res == NULL)
+    {
+        write(1, "(null)", 6);
+        return 6;
+    }
+    else
+        ft_putstr_fd(res, 1);
+        i = ft_strlen(res);
+    return (i);
 }

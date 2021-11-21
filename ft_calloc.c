@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_str.c                                        :+:      :+:    :+:   */
+/*   calloc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otmallah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 22:03:12 by otmallah          #+#    #+#             */
-/*   Updated: 2021/11/19 22:03:13 by otmallah         ###   ########.fr       */
+/*   Created: 2021/11/01 18:15:47 by otmallah          #+#    #+#             */
+/*   Updated: 2021/11/01 18:15:49 by otmallah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int putstr(va_list las)
+void	*ft_calloc(size_t n, size_t c)
 {
-    char *res;
+	void		*str;
+	size_t		i;
 
-    res = va_arg(las, char *);
-    ft_putstr_fd(res, 1);
-    return (1);
+	i = 0;
+	str = malloc(n * c);
+	if (str == 0)
+		return (NULL);
+	while (i < (n * c))
+	{
+		((char *)str)[i] = 0;
+		i++;
+	}
+	return (str);
 }

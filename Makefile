@@ -1,4 +1,4 @@
-NAME = libft.a
+NAME = libftprintf.a
 
 CC = @gcc -c
 
@@ -8,49 +8,23 @@ AR = ar -rc
 
 RM = @rm -f
 
-FILES = ft_isalpha.c\
-		ft_isdigit.c\
-		ft_isalnum.c\
-		ft_isascii.c\
-		ft_isprint.c\
-		ft_strlen.c\
-		ft_memset.c\
-		ft_bzero.c\
-		ft_memcpy.c\
-		ft_memmove.c\
-		ft_strlcpy.c\
-		ft_strlcat.c\
-		ft_toupper.c\
-		ft_tolower.c\
-		ft_strchr.c\
-		ft_strrchr.c\
-		ft_strncmp.c\
-		ft_memchr.c\
-		ft_memcmp.c\
-		ft_strnstr.c\
-		ft_atoi.c\
-		ft_calloc.c\
-		ft_strdup.c\
-		ft_substr.c\
-		ft_strjoin.c\
-		ft_strtrim.c\
-		ft_split.c\
-		ft_itoa.c\
-		ft_strmapi.c\
-		ft_striteri.c\
+FILES = ft_convert_add.c\
+		ft_decimal.c\
+		ft_printf.c\
 		ft_putchar_fd.c\
+		ft_putnbr_fd.c\
+		ft_strlen.c\
+		ft_hexdecimal_low.c\
 		ft_putstr_fd.c\
-		ft_putendl_fd.c\
-		ft_putnbr_fd.c
+		ft_unsigned_int.c\
+		ft_print_char.c\
+		ft_print_str.c\
+		ft_print_all.c\
+		print_percent.c\
+		ft_hexdecimal_upp.c\
+		ft_nbrlen_int.c\
+		ft_nbrlen_unsi.c
 
-BS = ft_lstsize_bonus.c\
-		ft_lstnew_bonus.c\
-		ft_lstadd_front_bonus.c\
-		ft_lstadd_back_bonus.c\
-		ft_lstlast_bonus.c\
-		ft_lstdelone_bonus.c\
-		ft_lstclear_bonus.c\
-		ft_lstiter_bonus.c
 
 # Colors
 C_RED = \033[1;31m
@@ -77,14 +51,7 @@ clean :
 
 fclean : clean
 	$(RM) $(NAME)
-	@echo "$(C_RED)[LIBFT.A REMOVED!]$(C_RES)"
-
-bonus : $(OBJS_B)
-
-$(OBJS_B) : $(BS) 	
-	$(CC) $(FLAGS) $(BS)
-	@$(AR) $(NAME) $(OBJS_B)
-	@echo "$(C_L_BLUE)[BONUS CREATED!]$(C_RES)"
+	@echo "$(C_RED)[LIBFTPRINTF.A REMOVED!]$(C_RES)"
 
 re : fclean all
 
