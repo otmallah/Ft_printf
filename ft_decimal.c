@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-int decimal(va_list ap)
+int	decimal(va_list ap)
 {
-    int num;
-    int i;
+	int	num;
+	int	i;
 
-    num = va_arg(ap, int);
-    i = ft_count_int(num);
-    ft_putnbr_fd(num, 1);
-    return (i);
+	num = va_arg(ap, int);
+	i = ft_count_int(num);
+	ft_putnbr_fd(num, 1);
+	return (i);
 }

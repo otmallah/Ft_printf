@@ -12,14 +12,14 @@
 
 #include "ft_printf.h"
 
-int ft_count_int(int numb)
+int	ft_count_int(int numb)
 {
-    int t;
-    int i;
+	int	t;
+	int	i;
 
-    i = 0;
-    t = numb;
-    if (t < 0)
+	i = 0;
+	t = numb;
+	if (t < 0)
 	{
 		t *= -1;
 		i++;
@@ -31,5 +31,5 @@ int ft_count_int(int numb)
 		t /= 10;
 		i++;
 	}
-    return i;
+	return (i);
 }

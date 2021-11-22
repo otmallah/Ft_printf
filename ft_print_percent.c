@@ -12,8 +12,8 @@
 
 #include "ft_printf.h"
 
-int percent(void)
+int	percent(void)
 {
-    ft_putchar_fd('%', 1);
-    return 1;
+	ft_putchar_fd('%', 1);
+	return (1);
 }

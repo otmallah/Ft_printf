@@ -10,52 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  <stdarg.h>
 #include "ft_printf.h"
 
-void    prt(const char *st , int v)
+int	ft_printf(const char *str, ...)
 {
-    if ((st[v] != '%' && (st[v + 1] != 'x' || st[v + 1] != 'c' || st[v + 1] != 's' || st[v + 1] != 'p' 
-        || st[v + 1] != 'i' || st[v + 1] != 'X' || st[v + 1] != 'd')))
-        ft_putchar_fd(st[v], 1);
-    else
-        v += 1;
-}
+	va_list	lst;
+	int		a;
+	int		i;
+	int		j;
 
-int ft_printf(const char *str, ...)
-{
-    va_list lst;
-    int a;
-    int i;
-    int j;
-
-    i = 0;
-    j = 0;
-    a = 0;
-    va_start (lst, str);
-    while (str[i])
-    {
-        if (str[i] == '%')
-        {
-            a += print_all(str[i + 1], lst);
-            i++;
-        }
-        else
-        {
-            write(1, &str[i], 1);
-            j++;
-        }
-        i++;
-    }
+	i = 0;
+	j = 0;
+	a = 0;
+	va_start (lst, str);
+	while (str[i])
+	{
+		if (str[i] == '%')
+		{
+			a = a + print_all(str[i + 1], lst);
+			i++;
+		}
+		else
+		{
+			write(1, &str[i], 1);
+			j++;
+		}
+		i++;
+	}
+	va_end(lst);
 	return (a + j);
 }
-
-// #include <stdio.h>
-// #include <limits.h>
-
-// int main(void)
-// {
-//     //int i , j;
-
-//     ft_printf("%p   ,    %p" , 0,0);
-// }

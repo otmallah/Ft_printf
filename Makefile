@@ -20,7 +20,7 @@ FILES = ft_convert_add.c\
 		ft_print_char.c\
 		ft_print_str.c\
 		ft_print_all.c\
-		print_percent.c\
+		ft_print_percent.c\
 		ft_hexdecimal_upp.c\
 		ft_nbrlen_int.c\
 		ft_nbrlen_unsi.c

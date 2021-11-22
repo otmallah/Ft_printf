@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-int ft_count_unsi(int numb)
+int	ft_count_unsi(int numb)
 {
-    unsigned int t;
-    int i;
+	unsigned int	t;
+	int				i;
 
-    i = 0;
-    t = (unsigned int)numb;
+	i = 0;
+	t = (unsigned int)numb;
 	if (t == 0)
 		i = 1;
 	while (t != 0)
@@ -26,5 +26,5 @@ int ft_count_unsi(int numb)
 		t /= 10;
 		i++;
 	}
-    return i;
+	return (i);
 }

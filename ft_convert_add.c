@@ -11,36 +11,32 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	print_address(va_list nu)
 {
-	int		i;
-	size_t	k;
-	char	*s;
-	int		pok;
-	char	tab[100];
-	void	*number;
+	t_pri	idx;
 
-	i = 0;
-	s = "0123456789abcdef";
+	idx.i = 0;
+	idx.s = "0123456789abcdef";
 	ft_putstr_fd("0x", 1);
-	number = va_arg(nu, void *);
-	k = (size_t)number;
-	if (k == 0)
-		return (1);
-	while (k)
+	idx.number = va_arg(nu, void *);
+	idx.k = (size_t)idx.number;
+	if (idx.k == 0)
 	{
-		tab[i] = s[k % 16];
-		k = k / 16;
-		i++;
+		ft_putchar_fd('0', 1);
+		return (3);
 	}
-	tab[i] = '\0';
-	pok = ft_strlen(tab) - 1;
-	while (pok >= 0)
+	while (idx.k)
 	{
-		ft_putchar_fd(tab[pok], 1);
-		pok--;
+		idx.tab[idx.i++] = idx.s[idx.k % 16];
+		idx.k = idx.k / 16;
 	}
-	return ((ft_strlen(tab) + 2));
+	idx.tab[idx.i] = '\0';
+	idx.i = ft_strlen(idx.tab) - 1;
+	while (idx.i >= 0)
+	{
+		ft_putchar_fd(idx.tab[idx.i], 1);
+		idx.i--;
+	}
+	return ((ft_strlen(idx.tab) + 2));
 }

@@ -12,39 +12,31 @@
 
 #include "ft_printf.h"
 
-int    convert_hex_upp(va_list list)
+int	convert_hex_upp(va_list list)
 {
-    int     i;
-    int     num;
-    int     j;
-    long    n;
-    char    *s;
-    char    tab[100];
+	t_hex_upp	index;
 
-    i = 0;
-    s = "0123456789ABCDEF";
-    num = va_arg(list, int);
-    if (num == 0)
-    {
-        ft_putchar_fd('0' , 1);
-        return 1;
-    }
-    if (num > 0)
-        n = (unsigned long long)num;
-    if (num < 0)
-        n = (unsigned int)num;
-    while (n)
-    {
-        tab[i] = s[n % 16];
-        n /= 16;
-        i++;
-    }
-    tab[i] = '\0'; 
-    j = ft_strlen(tab) - 1;
-    while (j >= 0)
-    {
-        ft_putchar_fd(tab[j], 1);
-        j--;
-    }
-    return (ft_strlen(tab));
+	index.i = 0;
+	index.s = "0123456789ABCDEF";
+	index.num = va_arg(list, int);
+	if (index.num == 0)
+	{
+		ft_putchar_fd('0', 1);
+		return (1);
+	}
+	if (index.num > 0)
+		index.n = (unsigned long long)index.num;
+	if (index.num < 0)
+		index.n = (unsigned int)index.num;
+	while (index.n)
+	{
+		index.tab[index.i] = index.s[index.n % 16];
+		index.n /= 16;
+		index.i++;
+	}
+	index.tab[index.i] = '\0';
+	index.j = ft_strlen(index.tab);
+	while (--index.j >= 0)
+		ft_putchar_fd(index.tab[index.j], 1);
+	return (ft_strlen(index.tab));
 }

@@ -12,20 +12,20 @@
 
 #include "ft_printf.h"
 
-int putstr(va_list las)
+int	putstr(va_list las)
 {
-    char *res;
-    int i;
+	char	*res;
+	int		i;
 
-    i = 0;
-    res = va_arg(las, char *);
-    if (res == NULL)
-    {
-        write(1, "(null)", 6);
-        return 6;
-    }
-    else
-        ft_putstr_fd(res, 1);
-        i = ft_strlen(res);
-    return (i);
+	i = 0;
+	res = va_arg(las, char *);
+	if (res == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	else
+		ft_putstr_fd(res, 1);
+		i = ft_strlen(res);
+	return (i);
 }

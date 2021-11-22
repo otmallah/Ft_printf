@@ -14,7 +14,7 @@
 
 int	ft_put_unsigned_nbr_fd(va_list num)
 {
-	int		i;
+	int				i;
 	unsigned int	t;
 
 	t = va_arg(num, unsigned int);
@@ -28,5 +28,5 @@ int	ft_put_unsigned_nbr_fd(va_list num)
 	{
 		ft_putchar_fd(t + 48, 1);
 	}
-	return i;
+	return (i);
 }
